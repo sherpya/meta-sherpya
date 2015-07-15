@@ -26,7 +26,6 @@ PACKAGES += "\
     ${PN}-test \
     ${PN}-protocols \
     ${PN}-conch \
-    ${PN}-logger \
     ${PN}-lore \
     ${PN}-mail \
     ${PN}-names \
@@ -60,7 +59,6 @@ RDEPENDS_${PN} = "\
 RDEPENDS_${PN}-core = "python-core python-zopeinterface python-contextlib"
 RDEPENDS_${PN}-test = "${PN}"
 RDEPENDS_${PN}-conch = "${PN}-core ${PN}-protocols"
-RDEPENDS_${PN}-logger = "${PN}-core"
 RDEPENDS_${PN}-lore = "${PN}-core"
 RDEPENDS_${PN}-mail = "${PN}-core ${PN}-protocols"
 RDEPENDS_${PN}-names = "${PN}-core"
@@ -181,16 +179,13 @@ ${libdir}/${PYTHON_DIR}/site-packages/twisted/trial/ \
 ${libdir}/${PYTHON_DIR}/site-packages/twisted/__init__.py* \
 ${libdir}/${PYTHON_DIR}/site-packages/twisted/_version.py* \
 ${libdir}/${PYTHON_DIR}/site-packages/twisted/copyright.py* \
+${libdir}/${PYTHON_DIR}/site-packages/twisted/logger/*py* \
 ${libdir}/${PYTHON_DIR}/site-packages/twisted/im.py* \
 ${libdir}/${PYTHON_DIR}/site-packages/twisted/*.py* \
 ${libdir}/${PYTHON_DIR}/site-packages/twisted/python/*.py* \
 ${libdir}/${PYTHON_DIR}/site-packages/twisted/plugins/*.py* \
 ${libdir}/${PYTHON_DIR}/site-packages/twisted/topfiles \
 ${libdir}/${PYTHON_DIR}/site-packages/Twisted*egg-info \
-"
-
-FILES_${PN}-logger = " \
-${libdir}/${PYTHON_DIR}/site-packages/twisted/logger \
 "
 
 FILES_${PN}-lore = " \
