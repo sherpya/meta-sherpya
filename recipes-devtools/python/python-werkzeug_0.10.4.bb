@@ -14,4 +14,3 @@ S = "${WORKDIR}/Werkzeug-${PV}"
 inherit setuptools
 
 RDEPENDS_${PN} = "python"
-

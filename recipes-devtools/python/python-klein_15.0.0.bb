@@ -14,4 +14,3 @@ S = "${WORKDIR}/klein-${PV}"
 inherit setuptools
 
 RDEPENDS_${PN} = "python python-twisted python-werkzeug"
-

@@ -14,4 +14,3 @@ S = "${WORKDIR}/crcmod-${PV}"
 inherit setuptools
 
 RDEPENDS_${PN} = "python"
-
