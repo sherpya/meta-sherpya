@@ -8,12 +8,11 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=92f7efe35161605ba200554c84c2b04b"
 
 SRC_URI = "https://pypi.python.org/packages/source/a/autobahn/autobahn-${PV}.tar.gz"
-SRC_URI[md5sum] = "4ae22413ee9ba8f6692e80e171b68777"
-SRC_URI[sha256sum] = "3dd7a7793cead942cb0c06bef5a9f69e64edc174e47fb822702eafd41085933d"
+SRC_URI[md5sum] = "75cbbead47bdac8ee606ca3ce9ee742e"                                                                         
+SRC_URI[sha256sum] = "28c13950ddaffdb2038631e238158c7b0dec05a2bdf27c8ee9621c77a0a11214"  
 
 S = "${WORKDIR}/autobahn-${PV}"
 
 inherit setuptools
 
 RDEPENDS_${PN} = "python python-pprint python-twisted-protocols python-netserver python-twisted-web"
-

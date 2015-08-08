@@ -4,13 +4,12 @@ Twisted supports TCP, UDP, SSL/TLS, multicast, Unix sockets, a large number of p
 HOMEPAGE = "http://www.twistedmatrix.com"
 SECTION = "console/network"
 
-#twisted/topfiles/NEWS:655: - Relicensed: Now under the MIT license, rather than LGPL.
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=d55433dd4f4c1f08b711c936d052e72b"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=1f3b211e44b7dae1674fb1e252fc556a"
 
 SRC_URI = "https://pypi.python.org/packages/source/T/Twisted/Twisted-${PV}.tar.bz2"
-SRC_URI[md5sum] = "4be066a899c714e18af1ecfcb01cfef7"
-SRC_URI[sha256sum] = "cfc328411ed52632ab8e7ae02cbc1422c51f5bd3abf919405ccf64d612cbb13d"
+SRC_URI[md5sum] = "b58e83da2f00b3352afad74d0c5c4599"
+SRC_URI[sha256sum] = "025729751cf898842262375a40f70ae1d246daea88369eab9f6bb96e528bf285"
 
 S = "${WORKDIR}/Twisted-${PV}"
 
@@ -26,7 +25,6 @@ PACKAGES += "\
     ${PN}-test \
     ${PN}-protocols \
     ${PN}-conch \
-    ${PN}-lore \
     ${PN}-mail \
     ${PN}-names \
     ${PN}-news \
@@ -47,7 +45,6 @@ PACKAGES =+ "\
 RDEPENDS_${PN} = "\
     ${PN}-bin \
     ${PN}-conch \
-    ${PN}-lore \
     ${PN}-mail \
     ${PN}-names \
     ${PN}-news \
@@ -59,7 +56,6 @@ RDEPENDS_${PN} = "\
 RDEPENDS_${PN}-core = "python-core python-zopeinterface python-contextlib"
 RDEPENDS_${PN}-test = "${PN}"
 RDEPENDS_${PN}-conch = "${PN}-core ${PN}-protocols"
-RDEPENDS_${PN}-lore = "${PN}-core"
 RDEPENDS_${PN}-mail = "${PN}-core ${PN}-protocols"
 RDEPENDS_${PN}-names = "${PN}-core"
 RDEPENDS_${PN}-news = "${PN}-core ${PN}-protocols"
@@ -186,13 +182,6 @@ ${libdir}/${PYTHON_DIR}/site-packages/twisted/python/*.py* \
 ${libdir}/${PYTHON_DIR}/site-packages/twisted/plugins/*.py* \
 ${libdir}/${PYTHON_DIR}/site-packages/twisted/topfiles \
 ${libdir}/${PYTHON_DIR}/site-packages/Twisted*egg-info \
-"
-
-FILES_${PN}-lore = " \
-${bindir}/bookify \
-${bindir}/lore \
-${libdir}/${PYTHON_DIR}/site-packages/twisted/plugins/twisted_lore.py* \
-${libdir}/${PYTHON_DIR}/site-packages/twisted/lore \
 "
 
 FILES_${PN}-mail = " \
