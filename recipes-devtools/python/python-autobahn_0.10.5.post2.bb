@@ -8,8 +8,8 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=92f7efe35161605ba200554c84c2b04b"
 
 SRC_URI = "https://pypi.python.org/packages/source/a/autobahn/autobahn-${PV}.tar.gz"
-SRC_URI[md5sum] = "75cbbead47bdac8ee606ca3ce9ee742e"                                                                         
-SRC_URI[sha256sum] = "28c13950ddaffdb2038631e238158c7b0dec05a2bdf27c8ee9621c77a0a11214"  
+SRC_URI[md5sum] = "1e236b887e78c2bf779933c90cf7f06a"
+SRC_URI[sha256sum] = "1bab6dac601a666763ec4b1e1c789920d331e8a404943a3d03e6701ff035faa1"
 
 S = "${WORKDIR}/autobahn-${PV}"
 
