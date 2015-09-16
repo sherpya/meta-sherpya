@@ -2,18 +2,17 @@ DESCRIPTION = "BOSSA is a flash programming utility for Atmel's SAM family of fl
 HOMEPAGE = "http://www.shumatech.com/web/products/bossa"
 SECTION = "console/utils"
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=94411054a7f6921218ab9c05b6b4b15b"
+LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=d32239bcb673463ab874e80d47fae503"
 
 S = "${WORKDIR}/git"
 
-SRC_URI = "git://github.com/shumatech/BOSSA.git \
-          file://compiler.patch \
-          "
+SRC_URI = "git://git.code.sf.net/p/b-o-s-s-a/code"
 SRCREV = "master"
 
 do_configure[noexec] = "1"
 
 do_compile() {
+    mkdir -p arm-dis
     oe_runmake bin/bossac
 }
 
