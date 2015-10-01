@@ -1,0 +1,13 @@
+diff --git a/Makefile b/Makefile
+index 1ae4b05..6b34b78 100644
+--- a/Makefile
++++ b/Makefile
+@@ -250,7 +250,7 @@ $(foreach bmp,$(BOSSA_BMPS),$(eval $(call bossa_bmp,$(bmp))))
+ $(OBJDIR):
+ 	@mkdir $@
+     
+-$(OBJDIR)/arm-dis:
++$(OBJDIR)/arm-dis: $(OBJDIR)
+ 	@mkdir $@
+     
+ $(BINDIR):
