@@ -7,12 +7,14 @@ SECTION = "console/network"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=92f7efe35161605ba200554c84c2b04b"
 
-SRC_URI = "https://pypi.python.org/packages/source/a/autobahn/autobahn-${PV}.tar.gz"
-SRC_URI[md5sum] = "43affb94dc2bcdae9d5d9263211972f1"
-SRC_URI[sha256sum] = "c515f6c9e9ed8e2a20769fb4757d187444d01a7f298ae61347fcb8c99844b150"
+SRC_URI = "https://pypi.python.org/packages/source/a/autobahn/autobahn-${PV}.tar.gz \
+    file://python-autobahn-ssl-fix.patch"
+SRC_URI[md5sum] = "fa90fa91f9c0e711ca6e87c7e9d835b7"
+SRC_URI[sha256sum] = "3fecc1e2a26a0421128ddcfb4e577f0bc669dd65d0e0fdad1c773965cbcef75a"
 
 S = "${WORKDIR}/autobahn-${PV}"
 
 inherit setuptools
+inherit allarch
 
 RDEPENDS_${PN} = "python python-pprint python-twisted-protocols python-netserver python-twisted-web"
