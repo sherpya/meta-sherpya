@@ -10,4 +10,4 @@ PYPI_PACKAGE = "service_identity"
 
 inherit pypi allarch
 
-RDEPENDS_${PN} = "python-pyopenssl python-pyasn1 python-pyasn1-modules python-characteristic"
+RDEPENDS_${PN} = "python-attrs python-pyopenssl python-pyasn1 python-pyasn1-modules python-characteristic"
