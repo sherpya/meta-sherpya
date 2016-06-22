@@ -15,7 +15,7 @@ do_install_append() {
     find ${D} \( -name "*.bat" -o -name "*.c" -o -name "*.h" \) -exec rm -f {} \;
 }
 
-RDEPENDS_${PN} = "python-zopeinterface"
+RDEPENDS_${PN} = "python-netserver python-zopeinterface"
 
 # does not work ;(
 #PACKAGES += "${PN}-test"
