@@ -5,17 +5,13 @@ def pypi_package(d):
     return bpn
 
 PYPI_PACKAGE ?= "${@pypi_package(d)}"
+PYPI_PACKAGE_EXT ?= 'gz'
 
 def pypi_src_uri(d):
-    import xmlrpclib
     package = d.getVar('PYPI_PACKAGE', True)
+    ext = d.getVar('PYPI_PACKAGE_EXT', True)
     pv = d.getVar('PV', True)
-    pypi = xmlrpclib.ServerProxy('https://pypi.python.org/pypi')
-    results = pypi.package_urls(package, pv)
-    for entry in results:
-        if entry['packagetype'] == 'sdist':
-            return entry['url']
-    raise Exception('%s %s not found on pypi' % (package, pv))
+    return 'http://pypi.debian.net/%s/%s-%s.tar.%s' % (package, package, pv, ext)
 
 PYPI_SRC_URI ?= "${@pypi_src_uri(d)}"
 

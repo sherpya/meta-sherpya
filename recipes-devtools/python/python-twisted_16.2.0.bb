@@ -7,6 +7,7 @@ SRC_URI[md5sum] = "8b35a88d5f1a4bfd762a008968fddabf"
 SRC_URI[sha256sum] = "a090e8dc675e97fb20c3bb5f8114ae94169f4e29fd3b3cbede35705fd3cdbd79"
 
 PYPI_PACKAGE = "Twisted"
+PYPI_PACKAGE_EXT = "bz2"
 
 inherit pypi
 
