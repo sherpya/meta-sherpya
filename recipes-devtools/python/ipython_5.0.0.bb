@@ -10,7 +10,6 @@ inherit pypi allarch
 
 RDEPENDS_${PN} = "\
     python-pydoc \
-    python-sqlite3 \
     python-traitlets \
     python-pygments \
     python-pexpect \
@@ -18,3 +17,5 @@ RDEPENDS_${PN} = "\
     python-pickleshare \
     python-simplegeneric \
     python-backports-shutil-get-terminal-size"
+
+RRECOMMENDS_${PN} = "python-sqlite3"
