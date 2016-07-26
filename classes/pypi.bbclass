@@ -5,13 +5,13 @@ def pypi_package(d):
     return bpn
 
 PYPI_PACKAGE ?= "${@pypi_package(d)}"
-PYPI_PACKAGE_EXT ?= 'gz'
+PYPI_PACKAGE_EXT ?= 'tar.gz'
 
 def pypi_src_uri(d):
     package = d.getVar('PYPI_PACKAGE', True)
     ext = d.getVar('PYPI_PACKAGE_EXT', True)
     pv = d.getVar('PV', True)
-    return 'http://pypi.debian.net/%s/%s-%s.tar.%s' % (package, package, pv, ext)
+    return 'http://pypi.debian.net/%s/%s-%s.%s' % (package, package, pv, ext)
 
 PYPI_SRC_URI ?= "${@pypi_src_uri(d)}"
 
