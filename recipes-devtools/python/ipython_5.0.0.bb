@@ -16,6 +16,7 @@ RDEPENDS_${PN} = "\
     python-pathlib2 \
     python-pickleshare \
     python-simplegeneric \
+    python-prompt-toolkit \
     python-backports-shutil-get-terminal-size"
 
 RRECOMMENDS_${PN} = "python-sqlite3"
