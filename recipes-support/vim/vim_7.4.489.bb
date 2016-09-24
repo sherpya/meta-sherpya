@@ -43,6 +43,7 @@ PACKAGECONFIG[selinux] = "--enable-selinux,--disable-selinux,libselinux,"
 PACKAGECONFIG[elfutils] = "--enable-elf-check,,elfutils,"
 
 EXTRA_OECONF = " \
+    --disable-nls \
     --disable-gpm \
     --disable-gtktest \
     --disable-xim \
