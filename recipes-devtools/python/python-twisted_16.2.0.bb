@@ -14,10 +14,8 @@ inherit pypi
 do_install_append() {
     # remove some useless files before packaging
     find ${D} \( -name "*.bat" -o -name "*.c" -o -name "*.h" \) -exec rm -f {} \;
+    # delete tests, I was unable to move them in -test package
+    find ${D} -type d -name test | sort -r | xargs rm -fr
 }
 
 RDEPENDS_${PN} = "python-netserver python-zopeinterface"
-
-# does not work ;(
-#PACKAGES += "${PN}-test"
-#FILES_${PN}-test = "${PYTHON_SITEPACKAGES_DIR}/twisted/*/test/* ${PYTHON_SITEPACKAGES_DIR}/twisted/*/*/test/*"
