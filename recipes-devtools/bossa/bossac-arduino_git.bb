@@ -1,8 +1,8 @@
 DESCRIPTION = "BOSSA is a flash programming utility for Atmel's SAM family of flash-based ARM microcontrollers (arduino)"
 HOMEPAGE = "http://www.shumatech.com/web/products/bossa"
 SECTION = "console/utils"
-LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=d32239bcb673463ab874e80d47fae503"
+LICENSE = "GPL-3.0"
+LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=d32239bcb673463ab874e80d47fae504"
 
 S = "${WORKDIR}/git"
 
