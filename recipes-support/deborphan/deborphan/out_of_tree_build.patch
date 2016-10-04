@@ -1,0 +1,22 @@
+diff -ur deborphan.orig/Makefile.am deborphan/Makefile.am
+--- deborphan.orig/Makefile.am	2012-06-30 20:47:51.000000000 +0200
++++ deborphan/Makefile.am	2016-10-04 04:26:43.968572746 +0200
+@@ -4,7 +4,7 @@
+ # $Id: Makefile.am 911 2012-04-27 22:26:01Z carsten $
+ 
+ AUTOMAKE_OPTIONS = foreign
+-SUBDIRS = src po doc include intl util
++SUBDIRS = src doc include
+ EXTRA_DIST = \
+ 	debian/README.frontends \
+ 	debian/bash-complete \
+diff -ur deborphan.orig/src/Makefile.am deborphan/src/Makefile.am
+--- deborphan.orig/src/Makefile.am	2012-06-30 20:47:50.000000000 +0200
++++ deborphan/src/Makefile.am	2016-10-04 04:22:39.197426078 +0200
+@@ -12,5 +12,5 @@
+ 
+ localedir = $(datadir)/locale
+ 
+-INCLUDES = -I../include
++INCLUDES = -I../include -I$(top_srcdir)/include
+ DEFS = -DLOCALEDIR=\"$(localedir)\" -DKEEPER_FILE=\"$(KEEPFILE)\" @DEFS@

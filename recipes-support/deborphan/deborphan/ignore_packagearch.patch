@@ -1,0 +1,13 @@
+diff -ur deborphan.orig/src/pkginfo.c deborphan/src/pkginfo.c
+--- deborphan.orig/src/pkginfo.c	2016-10-04 05:07:56.428767837 +0200
++++ deborphan/src/pkginfo.c	2016-10-04 05:07:51.216805173 +0200
+@@ -136,7 +136,8 @@
+ 	    get_pkg_priority(line, package);
+ 	    break;
+ 	case 'C':		/* PaCkage */
+-	    get_pkg_name(line, package);
++	    if (strncmp("Package:", line, sizeof("Package:") - 1) == 0)
++		get_pkg_name(line, package);
+ 	    break;
+ 	case 'O':		/* PrOvides */
+ 	    get_pkg_provides(line, package);
