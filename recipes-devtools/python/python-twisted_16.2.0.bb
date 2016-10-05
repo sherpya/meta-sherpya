@@ -16,6 +16,8 @@ do_install_append() {
     find ${D} \( -name "*.bat" -o -name "*.c" -o -name "*.h" \) -exec rm -f {} \;
     # delete tests, I was unable to move them in -test package
     find ${D} -type d -name test | sort -r | xargs rm -fr
+    # delete uneeded iocpreactor
+    rm -fr ${D}${PYTHON_SITEPACKAGES_DIR}/twisted/internet/iocpreactor
 }
 
 RDEPENDS_${PN} = "python-netserver python-zopeinterface"
