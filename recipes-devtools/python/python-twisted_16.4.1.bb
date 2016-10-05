@@ -1,10 +1,10 @@
 SUMMARY = "An asynchronous networking framework written in Python"
 
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=9672c25773d5c07baba86293eb58e09e"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=7fde5c4b582b346163fcb52536484884"
 
-SRC_URI[md5sum] = "8b35a88d5f1a4bfd762a008968fddabf"
-SRC_URI[sha256sum] = "a090e8dc675e97fb20c3bb5f8114ae94169f4e29fd3b3cbede35705fd3cdbd79"
+SRC_URI[md5sum] = "c6d09bdd681f538369659111f079c29d"
+SRC_URI[sha256sum] = "1d8d73f006c990744effb35588359fd44d43608649ac0b6b7edc71176e88e816"
 
 PYPI_PACKAGE = "Twisted"
 PYPI_PACKAGE_EXT = "tar.bz2"
