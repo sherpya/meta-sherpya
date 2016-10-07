@@ -4,13 +4,13 @@ DEPENDS = "ncurses gettext-native"
 # vimdiff doesn't like busybox diff
 RSUGGESTS_${PN} = "diffutils"
 LICENSE = "vim"
-LIC_FILES_CHKSUM = "file://../runtime/doc/uganda.txt;md5=c74ec0ada9a68354f9461e81d3596f61"
+LIC_FILES_CHKSUM = "file://../runtime/doc/uganda.txt;md5=eea32ac1424bba14096736a494ae9045"
 
-SRC_URI = "git://github.com/vim/vim \
+SRC_URI = "git://github.com/vim/vim.git \
            file://disable_acl_header_check.patch;patchdir=.. \
            file://vim-add-knob-whether-elf.h-are-checked.patch;patchdir=.. \
 "
-SRCREV = "v7.4.889"
+SRCREV = "v8.0.0022"
 
 S = "${WORKDIR}/git/src"
 
@@ -63,27 +63,27 @@ EXTRA_OECONF = " \
 do_install() {
     autotools_do_install
 
-    # Work around rpm picking up csh or awk or perl as a dep
-    chmod -x ${D}${datadir}/${BPN}/${VIMDIR}/tools/vim132
-    chmod -x ${D}${datadir}/${BPN}/${VIMDIR}/tools/mve.awk
-    chmod -x ${D}${datadir}/${BPN}/${VIMDIR}/tools/*.pl
-
-    # Install example vimrc from runtime files
-    install -m 0644 ../runtime/vimrc_example.vim ${D}/${datadir}/${BPN}/vimrc
-
     # we use --with-features=big as default
     mv ${D}${bindir}/${BPN} ${D}${bindir}/${BPN}.${BPN}
+
+    # remove icons and desktop entries
+    rm -fr ${D}${datadir}/icons
+    rm -fr ${D}${datadir}/applications
+
+    # remove pack and tools
+    rm -fr ${D}${datadir}/${BPN}/${VIMDIR}/pack
+    rm -fr ${D}${datadir}/${BPN}/${VIMDIR}/tools
 }
 
 PARALLEL_MAKEINST = ""
 
-PACKAGES =+ "${PN}-common ${PN}-syntax ${PN}-help ${PN}-tutor ${PN}-vimrc"
+PACKAGES =+ "${PN}-common ${PN}-syntax ${PN}-help ${PN}-tutor"
 FILES_${PN}-syntax = "${datadir}/${BPN}/${VIMDIR}/syntax"
 FILES_${PN}-help = "${datadir}/${BPN}/${VIMDIR}/doc"
 FILES_${PN}-tutor = "${datadir}/${BPN}/${VIMDIR}/tutor ${bindir}/${BPN}tutor"
-FILES_${PN}-vimrc = "${datadir}/${BPN}/vimrc"
 FILES_${PN}-data = "${datadir}/${BPN}"
 FILES_${PN}-common = " \
+    ${datadir}/${BPN}/${VIMDIR}/rgb.txt \
     ${datadir}/${BPN}/${VIMDIR}/*.vim \
     ${datadir}/${BPN}/${VIMDIR}/autoload \
     ${datadir}/${BPN}/${VIMDIR}/colors \
@@ -96,12 +96,11 @@ FILES_${PN}-common = " \
     ${datadir}/${BPN}/${VIMDIR}/plugin \
     ${datadir}/${BPN}/${VIMDIR}/print \
     ${datadir}/${BPN}/${VIMDIR}/spell \
-    ${datadir}/${BPN}/${VIMDIR}/tools \
 "
 
 RDEPENDS_${PN} = "ncurses-terminfo-base"
 # Recommend that runtime data is installed along with vim
-RRECOMMENDS_${PN} = "${PN}-syntax ${PN}-help ${PN}-tutor ${PN}-vimrc ${PN}-common"
+RRECOMMENDS_${PN} = "${PN}-syntax ${PN}-help ${PN}-tutor ${PN}-common"
 
 ALTERNATIVE_${PN} = "vi vim"
 ALTERNATIVE_TARGET = "${bindir}/${BPN}.${BPN}"
