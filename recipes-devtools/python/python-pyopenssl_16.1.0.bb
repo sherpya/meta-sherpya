@@ -13,8 +13,9 @@ PYPI_PACKAGE = "pyOpenSSL"
 inherit pypi allarch
 
 PACKAGES =+ "${PN}-tests"
-FILES_${PN}-tests = "${libdir}/${PYTHON_DIR}/site-packages/OpenSSL/test"
 
 DEPENDS = "openssl python-cryptography"
 RDEPENDS_${PN} = "python-threading python-six (>= 1.5.2) python-cryptography (>= 1.5.2)"
 RDEPENDS_${PN}-tests = "${PN}"
+
+FILES_${PN}-tests = "${PYTHON_SITEPACKAGES_DIR}/OpenSSL/test"

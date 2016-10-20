@@ -8,4 +8,9 @@ SRC_URI[sha256sum] = "02aa8979ba7a7153fdd656ab399458ac12d8b6df8115792a73f31c9886
 
 inherit pypi allarch
 
+PACKAGES =+ "${PN}-tests"
+
 RDEPENDS_${PN} = "python-twisted python-six"
+RDEPENDS_${PN}-tests = "${PN}"
+
+FILES_${PN}-tests = "${PYTHON_SITEPACKAGES_DIR}/txdbus/test"

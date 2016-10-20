@@ -10,10 +10,13 @@ PYPI_PACKAGE = "zope.interface"
 
 inherit pypi allarch
 
+PACKAGES =+ "${PN}-tests"
+
 RPROVIDES_${PN} += "zope-interfaces"
+RDEPENDS_${PN}-tests = "${PN}"
+
 FILES_${PN}-dbg += "${PYTHON_SITEPACKAGES_DIR}/*.egg/*/*/.debug"
 FILES_${PN}-dev += "${PYTHON_SITEPACKAGES_DIR}/zope/interface/*.c"
-FILES_${PN}-doc += "${PYTHON_SITEPACKAGES_DIR}/zope/interface/*.txt"
 FILES_${PN}-tests = " \
         ${PYTHON_SITEPACKAGES_DIR}/zope/interface/tests \
         ${PYTHON_SITEPACKAGES_DIR}/zope/interface/common/tests"

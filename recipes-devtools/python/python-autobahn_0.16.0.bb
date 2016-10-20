@@ -8,4 +8,10 @@ SRC_URI[sha256sum] = "a1dcb4315a0914da56ec484659816de72dfad229be4ac19fa61bbc0111
 
 inherit pypi allarch
 
+PACKAGES =+ "${PN}-tests"
+
 RDEPENDS_${PN} = "python-twisted"
+RDEPENDS_${PN}-tests = "${PN}"
+
+FILES_${PN}-tests = "${PYTHON_SITEPACKAGES_DIR}/autobahn/test \
+                     ${PYTHON_SITEPACKAGES_DIR}/autobahn/*/test"
