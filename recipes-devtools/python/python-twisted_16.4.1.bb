@@ -18,11 +18,22 @@ do_install_append() {
     rm -fr ${D}${PYTHON_SITEPACKAGES_DIR}/twisted/internet/iocpreactor
 }
 
-RDEPENDS_${PN} = "python-netserver python-zopeinterface"
+PACKAGES =+ "${PN}-tests ${PN}-conch"
 
-PACKAGES =+ "${PN}-tests"
-FILES_${PN}-tests = " \
+RDEPENDS_${PN} = "python-netserver python-zopeinterface"
+RDEPENDS_${PN}-tests = "${PN}"
+RDEPENDS_${PN}-conch = "${PN}"
+
+FILES_${PN}-tests = "\
+        ${bindir}/trial \
         ${PYTHON_SITEPACKAGES_DIR}/twisted/test \
         ${PYTHON_SITEPACKAGES_DIR}/twisted/trial \
         ${PYTHON_SITEPACKAGES_DIR}/twisted/*/test \
         ${PYTHON_SITEPACKAGES_DIR}/twisted/*/*/test"
+
+FILES_${PN}-conch = "\
+    ${bindir}/cftp \
+    ${bindir}/ckeygen \
+    ${bindir}/conch \
+    ${bindir}/tkconch \
+    ${PYTHON_SITEPACKAGES_DIR}/twisted/conch"
