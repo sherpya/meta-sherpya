@@ -1,3 +1,6 @@
+# Copyright (C) 2016 sherpya <sherpya@netfarm.it>
+# Released under the MIT license
+
 SUMMARY = "htop process monitor"
 HOMEPAGE = "http://htop.sf.net"
 SECTION = "console/utils"
