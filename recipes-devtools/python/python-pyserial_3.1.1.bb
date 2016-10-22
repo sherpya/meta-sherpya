@@ -8,15 +8,26 @@ SRC_URI[sha256sum] = "d657051249ce3cbd0446bcfb2be07a435e1029da4d63f53ed9b4cdde73
 
 inherit pypi allarch
 
-do_install_append() {
-    rm -f ${D}${PYTHON_SITEPACKAGES_DIR}/serial/win32.py*
-    rm -f ${D}${PYTHON_SITEPACKAGES_DIR}/serial/serialwin32.py*
-    rm -f ${D}${PYTHON_SITEPACKAGES_DIR}/serial/serialjava.py*
-    # miniterm.py needs argparse
-    rm -fr ${D}${bindir}
-}
+PACKAGES =+ "${PN}-miniterm"
+PROVIDES += "${PACKAGES}"
 
 RDEPENDS_${PN} = "\
     python-fcntl \
     python-io \
     python-stringold"
+RDEPENDS_${PN}-miniterm = "${PN} python-argparse"
+
+FILES_${PN}-miniterm = "\
+    ${bindir}/miniterm.py \
+    ${PYTHON_SITEPACKAGES_DIR}/serial/tools/miniterm.py* \
+    ${PYTHON_SITEPACKAGES_DIR}/serial/tools/hexlify_codec.py*"
+
+do_install_append() {
+    # purge unneeded files
+    rm -f ${D}${PYTHON_SITEPACKAGES_DIR}/serial/win32.py*
+    rm -f ${D}${PYTHON_SITEPACKAGES_DIR}/serial/serialwin32.py*
+    rm -f ${D}${PYTHON_SITEPACKAGES_DIR}/serial/serialjava.py*
+    rm -f ${D}${PYTHON_SITEPACKAGES_DIR}/serial/serialcli.py*
+    rm -f ${D}${PYTHON_SITEPACKAGES_DIR}/serial/tools/list_ports_windows.py*
+    rm -f ${D}${PYTHON_SITEPACKAGES_DIR}/serial/tools/list_ports_osx.py*
+}
