@@ -15,5 +15,3 @@ do_install_append() {
     install -m 0755 ${WORKDIR}/sysfsutils.init ${D}${sysconfdir}/init.d/sysfsutils
     install -m 0644 ${WORKDIR}/sysfs.conf ${D}${sysconfdir}/sysfs.conf
 }
-
-RDEPENDS_${PN} += "sed"
