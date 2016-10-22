@@ -20,3 +20,8 @@ FILES_${PN}-dev += "${PYTHON_SITEPACKAGES_DIR}/zope/interface/*.c"
 FILES_${PN}-tests = " \
         ${PYTHON_SITEPACKAGES_DIR}/zope/interface/tests \
         ${PYTHON_SITEPACKAGES_DIR}/zope/interface/common/tests"
+
+# remove setuptools runtime dependency
+do_install_append() {
+    sed -i -e 's/setuptools//g' ${D}${PYTHON_SITEPACKAGES_DIR}/*.egg-info/requires.txt
+}

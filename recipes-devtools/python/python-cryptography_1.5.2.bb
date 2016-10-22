@@ -17,7 +17,7 @@ RDEPENDS_${PN} = "\
     python-idna \
     python-cffi \
     python-enum34 \
-    python-setuptools \
+    python-pkg-resources \
     python-pycparser \
     python-subprocess \
     python-threading \

@@ -20,7 +20,8 @@ do_install_append() {
 
 PACKAGES =+ "${PN}-tests ${PN}-conch"
 
-RDEPENDS_${PN} = "python-netserver python-zopeinterface"
+RDEPENDS_${PN} = "python-netserver python-zopeinterface python-pkg-resources"
+
 RDEPENDS_${PN}-tests = "${PN}"
 RDEPENDS_${PN}-conch = "${PN}"
 

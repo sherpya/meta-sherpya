@@ -9,3 +9,5 @@ SRC_URI[sha256sum] = "cc64dafbacc716cdd42503cf6c44cb5a35576443d82f29f6829e5c4926
 PYPI_PACKAGE = "Werkzeug"
 
 inherit pypi allarch
+
+RDEPENDS_${PN} = "python-html python-codecs"
