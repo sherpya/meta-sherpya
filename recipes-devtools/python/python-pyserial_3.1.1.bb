@@ -12,6 +12,8 @@ do_install_append() {
     rm -f ${D}${PYTHON_SITEPACKAGES_DIR}/serial/win32.py*
     rm -f ${D}${PYTHON_SITEPACKAGES_DIR}/serial/serialwin32.py*
     rm -f ${D}${PYTHON_SITEPACKAGES_DIR}/serial/serialjava.py*
+    # miniterm.py needs argparse
+    rm -fr ${D}${bindir}
 }
 
 RDEPENDS_${PN} = "\
