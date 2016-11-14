@@ -1,4 +1,4 @@
-SUMMARY = "A cross-platform library for retrieving information onrunning processes and system utilization"
+SUMMARY = "A cross-platform library for retrieving information on running processes and system utilization"
 
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=0f02e99f7f3c9a7fe8ecfc5d44c2be62"
