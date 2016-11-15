@@ -10,6 +10,7 @@ inherit pypi allarch
 
 RDEPENDS_${PN} = "\
     python-pydoc \
+    python-distutils \
     python-traitlets \
     python-pygments \
     python-pexpect \
