@@ -9,9 +9,9 @@ PYPI_PACKAGE_EXT ?= 'tar.gz'
 
 def pypi_src_uri(d):
     package = d.getVar('PYPI_PACKAGE', True)
-    ext = d.getVar('PYPI_PACKAGE_EXT', True)
+    package_ext = d.getVar('PYPI_PACKAGE_EXT', True)
     pv = d.getVar('PV', True)
-    return 'http://pypi.debian.net/%s/%s-%s.%s' % (package, package, pv, ext)
+    return 'https://files.pythonhosted.org/packages/source/%s/%s/%s-%s.%s' % (package[0], package, package, pv, package_ext)
 
 PYPI_SRC_URI ?= "${@pypi_src_uri(d)}"
 
