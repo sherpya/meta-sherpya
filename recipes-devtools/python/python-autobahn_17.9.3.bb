@@ -1,10 +1,10 @@
 SUMMARY = "WebSocket client & server library, WAMP real-time framework"
 
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=92f7efe35161605ba200554c84c2b04b"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=97c0bda20ad1d845c6369c0e47a1cd98"
 
-SRC_URI[md5sum] = "9850702d0078c5a4aa17170afe2f233c"
-SRC_URI[sha256sum] = "a1dcb4315a0914da56ec484659816de72dfad229be4ac19fa61bbc0111ada884"
+SRC_URI[md5sum] = "26c24d0049c43f902ab0b8d16a3e3ce2"
+SRC_URI[sha256sum] = "206a3a579a580ca3ce2532ac12ec52d447135c9ace7c4bf6065b832a7cff25ba"
 
 inherit pypi allarch
 
