@@ -1,0 +1,41 @@
+#!/bin/sh
+DAEMON=/usr/sbin/ntpd
+NAME=ntpd
+DESC="Busybox NTP Daemon"
+ARGS="-N"
+CONF="/etc/ntp.conf"
+
+test -f $DAEMON || exit 0
+grep -q server $CONF 2>/dev/null || ARGS="$ARGS -p pool.ntp.org"
+
+set -e
+
+case "$1" in
+    start)
+        echo -n "starting $DESC: $NAME... "
+	start-stop-daemon -S -b -n $NAME -a $DAEMON -- $ARGS
+	echo "done."
+	;;
+    stop)
+        echo -n "stopping $DESC: $NAME... "
+	start-stop-daemon -K -n $NAME
+	echo "done."
+	;;
+    restart)
+        echo "restarting $DESC: $NAME... "
+ 	$0 stop
+	$0 start
+	echo "done."
+	;;
+    reload)
+    	echo -n "reloading $DESC: $NAME... "
+    	killall -HUP $(basename ${DAEMON})
+	echo "done."
+	;;
+    *)
+	echo "Usage: $0 {start|stop|restart|reload}"
+	exit 1
+	;;
+esac
+
+exit 0
