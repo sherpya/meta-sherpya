@@ -1,0 +1,31 @@
+diff --git a/Makefile b/Makefile
+index 1ae4b05..3a746a3 100644
+--- a/Makefile
++++ b/Makefile
+@@ -134,7 +134,7 @@ DEPENDS+=$(BOSSASH_SRCS:%.cpp=$(OBJDIR)/%.d)
+ # Tools
+ #
+ #Q=@
+-CXX=g++
++CXX?=g++
+ ARM=arm-none-eabi-
+ ARMAS=$(ARM)as
+ ARMOBJCOPY=$(ARM)objcopy
+@@ -248,13 +248,13 @@ $(foreach bmp,$(BOSSA_BMPS),$(eval $(call bossa_bmp,$(bmp))))
+ # Directory rules
+ #
+ $(OBJDIR):
+-	@mkdir $@
++	@mkdir -p $@
+     
+-$(OBJDIR)/arm-dis:
+-	@mkdir $@
++$(OBJDIR)/arm-dis: $(OBJDIR)
++	@mkdir -p $@
+     
+ $(BINDIR):
+-	@mkdir $@
++	@mkdir -p $@
+ 
+ #
+ # Target rules
