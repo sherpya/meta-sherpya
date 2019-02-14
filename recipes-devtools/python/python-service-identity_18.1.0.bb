@@ -8,6 +8,6 @@ SRC_URI[sha256sum] = "0858a54aabc5b459d1aafa8a518ed2081a285087f349fe3e5519798923
 
 PYPI_PACKAGE = "service_identity"
 
-inherit pypi allarch
+inherit pypi setuptools allarch
 
 RDEPENDS_${PN} = "python-attrs python-pyopenssl python-pyasn1 python-pyasn1-modules python-characteristic"

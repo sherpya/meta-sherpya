@@ -8,6 +8,4 @@ SRC_URI[sha256sum] = "67e360ac73b12c52058219bb5f8b3ed4105d2636707a36a7cdafb56fe0
 
 inherit pypi setuptools allarch
 
-# depends on tox
-PTEST_ENABLE = "0"
 RDEPENDS_${PN} = "python-six python-twisted"
