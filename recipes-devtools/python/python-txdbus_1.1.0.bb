@@ -3,8 +3,8 @@ SUMMARY = "A native Python implementation of the DBus protocol for Twisted appli
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
 
-SRC_URI[md5sum] = "b862aae54740f8f8eb1ae193db6fa2d3"
-SRC_URI[sha256sum] = "02aa8979ba7a7153fdd656ab399458ac12d8b6df8115792a73f31c98862b04d6"
+SRC_URI[md5sum] = "f17c9204c7f56365c297ba68e6840900"
+SRC_URI[sha256sum] = "6ff57f42c58d935956024b3c6824c1019db7d233d0af86aa0573b73b63b0817c"
 
 inherit pypi allarch
 

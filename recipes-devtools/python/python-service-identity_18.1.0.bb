@@ -3,8 +3,8 @@ SUMMARY = "Service identity verification for pyOpenSSL"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=8a0f079f4e6a215d6bd6f9d97cab4d5f"
 
-SRC_URI[md5sum] = "d52392597b9c44a740abf322bfdb21e6"
-SRC_URI[sha256sum] = "0630e222f59f91f3db498be46b1d879ff220955d7bbad719a5cb9ad14e3c3036"
+SRC_URI[md5sum] = "c6b8bac93e7d899a1da313a19cc6570a"
+SRC_URI[sha256sum] = "0858a54aabc5b459d1aafa8a518ed2081a285087f349fe3e55197989232e2e2d"
 
 PYPI_PACKAGE = "service_identity"
 
