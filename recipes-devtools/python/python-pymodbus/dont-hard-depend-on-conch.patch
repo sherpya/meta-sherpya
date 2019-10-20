@@ -1,0 +1,27 @@
+diff -ur pymodbus-2.2.0.orig/pymodbus/internal/ptwisted.py pymodbus-2.2.0/pymodbus/internal/ptwisted.py
+--- pymodbus-2.2.0.orig/pymodbus/internal/ptwisted.py	2019-01-14 16:37:43.000000000 +0100
++++ pymodbus-2.2.0/pymodbus/internal/ptwisted.py	2019-10-20 15:20:23.802022841 +0200
+@@ -1,11 +1,7 @@
+ '''
+ A collection of twisted utility code
+ '''
+-from pymodbus.compat import IS_PYTHON2, IS_PYTHON3
+-if IS_PYTHON2:
+-    from twisted.cred import portal, checkers
+-    from twisted.conch import manhole, manhole_ssh
+-    from twisted.conch.insults import insults
++from pymodbus.compat import IS_PYTHON3
+ 
+ #---------------------------------------------------------------------------#
+ # Logging
+@@ -27,6 +23,10 @@
+     '''
+     if IS_PYTHON3:
+         raise NotImplemented("This code currently doesn't work on python3")
++
++    from twisted.cred import portal, checkers
++    from twisted.conch import manhole, manhole_ssh
++    from twisted.conch.insults import insults
+     from twisted.internet import reactor
+ 
+     def build_protocol():
