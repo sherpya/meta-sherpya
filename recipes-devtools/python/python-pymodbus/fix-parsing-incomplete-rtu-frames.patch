@@ -1,0 +1,43 @@
+commit 9fb82b12c43c5d649f3ae11315887b4f0a409e5f
+Author: Gianluigi Tiesi <sherpya@netfarm.it>
+Date:   Thu Jul 9 14:49:51 2020 +0200
+
+    rtu_framer: wait for entire frame before processing
+
+diff --git a/pymodbus/framer/rtu_framer.py b/pymodbus/framer/rtu_framer.py
+index c2d74d0..00d555b 100644
+--- a/pymodbus/framer/rtu_framer.py
++++ b/pymodbus/framer/rtu_framer.py
+@@ -86,7 +86,6 @@ class ModbusRtuFramer(ModbusFramer):
+         2. Discard frame if UID does not match
+         """
+         try:
+-            self.populateHeader()
+             frame_size = self._header['len']
+             data = self._buffer[:frame_size - 2]
+             crc = self._buffer[frame_size - 2:frame_size]
+@@ -137,7 +136,15 @@ class ModbusRtuFramer(ModbusFramer):
+ 
+         :returns: True if ready, False otherwise
+         """
+-        return len(self._buffer) > self._hsize
++
++        size = self._header.get('len', 0)
++        if size == 0 and len(self._buffer) > self._hsize:
++            try:
++                size = self.populateHeader()
++            except IndexError:
++                return False
++
++        return len(self._buffer) >= size if size > 0 else False
+ 
+     def populateHeader(self, data=None):
+         """
+@@ -157,6 +164,7 @@ class ModbusRtuFramer(ModbusFramer):
+         size = pdu_class.calculateRtuFrameSize(data)
+         self._header['len'] = size
+         self._header['crc'] = data[size - 2:size]
++        return size
+ 
+     def addToFrame(self, message):
+         """
