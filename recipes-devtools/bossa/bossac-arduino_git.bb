@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=d32239bcb673463ab874e80d47fae504"
 
 S = "${WORKDIR}/git"
 
-SRC_URI = "git://github.com/flutterwireless/BOSSA-Arduino.git \
+SRC_URI = "git://github.com/flutterwireless/BOSSA-Arduino.git;protocol=https;branch=master \
            file://makefile.patch \
            file://missing-include.patch"
 

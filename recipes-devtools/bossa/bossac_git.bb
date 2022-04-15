@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=bcf9399f7b9b96149837290bcdc3ad39"
 
 S = "${WORKDIR}/git"
 
-SRC_URI = "git://github.com/shumatech/BOSSA.git"
+SRC_URI = "git://github.com/shumatech/BOSSA.git;protocol=https;branch=master"
 SRCREV = "3279031813093aa404b8561c8dd7a39dd24ebc70"
 
 SRC_URI[md5sum] = "2dd3248a3170e7a67abcc202b24d8738"
